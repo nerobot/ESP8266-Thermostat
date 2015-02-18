@@ -38,7 +38,30 @@
 #include "user_interface.h"
 #include "mem.h"
 
+#define DELAY 60000
+
 MQTT_Client mqttClient;
+LOCAL os_timer_t blink_timer;
+
+void initI2C(){
+
+}
+
+LOCAL void ICACHE_FLASH_ATTR blink_cb(uint32_t *args)
+{
+	MQTT_Client* client = (MQTT_Client*)args;
+	INFO("Publishin\r\n");
+	MQTT_Publish(client, "/LivingRoom/Temp", "Hi", 4, 0, 1);
+}
+
+void initTimer(){
+	// Setting up the timer
+	os_timer_disarm(&blink_timer);
+	//// os_timer_setfn(ETSTimer *ptimer, ETSTimerFunc *pfunction, void *parg)
+	os_timer_setfn(&blink_timer, (os_timer_func_t *)blink_cb, &mqttClient);
+	//// void os_timer_arm(ETSTimer *ptimer,uint32_t milliseconds, bool repeat_flag)
+	os_timer_arm(&blink_timer, DELAY, 1);
+}
 
 void wifiConnectCb(uint8_t status)
 {
@@ -52,14 +75,7 @@ void mqttConnectedCb(uint32_t *args)
 {
 	MQTT_Client* client = (MQTT_Client*)args;
 	INFO("MQTT: Connected\r\n");
-	MQTT_Subscribe(client, "/mqtt/topic/0", 0);
-	MQTT_Subscribe(client, "/mqtt/topic/1", 1);
-	MQTT_Subscribe(client, "/mqtt/topic/2", 2);
-
-	MQTT_Publish(client, "/mqtt/topic/0", "hello0", 6, 0, 0);
-	MQTT_Publish(client, "/mqtt/topic/1", "hello1", 6, 1, 0);
-	MQTT_Publish(client, "/mqtt/topic/2", "hello2", 6, 2, 0);
-
+	MQTT_Publish(client, "/LivingRoom/Temp", "Online", 4, 0, 1);
 }
 
 void mqttDisconnectedCb(uint32_t *args)
@@ -95,11 +111,13 @@ void mqttDataCb(uint32_t *args, const char* topic, uint32_t topic_len, const cha
 
 void user_init(void)
 {
+	// Setting up UART communication
 	uart_init(BIT_RATE_115200, BIT_RATE_115200);
 	os_delay_us(1000000);
 
 	CFG_Load();
 
+	// Setting up MQTT
 	MQTT_InitConnection(&mqttClient, sysCfg.mqtt_host, sysCfg.mqtt_port, sysCfg.security);
 	//MQTT_InitConnection(&mqttClient, "192.168.11.122", 1880, 0);
 
@@ -115,4 +133,8 @@ void user_init(void)
 	WIFI_Connect(sysCfg.sta_ssid, sysCfg.sta_pwd, wifiConnectCb);
 
 	INFO("\r\nSystem started ...\r\n");
+
+	// Setting up timer for temperature sensing IC
+	initI2C();
+	initTimer();
 }
