@@ -8,4 +8,4 @@ The project comes in 3 folders:
 * C code for the ESP thermometer devices
 * C code for the ESP temperature control board
 
-The ESP code was designed and compiled using the Windows SDK Toolkit available at...
+The ESP code was designed and compiled using the Windows SDK Toolkit available at http://www.esp8266.com/viewtopic.php?f=9&t=820
