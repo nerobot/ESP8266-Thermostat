@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config transient="false" date="1422541774103">
+	<site enabled="true" updateable="true" policy="USER-EXCLUDE" url="platform:/base/">
+		<feature id="org.openhab.runtime.feature" url="features/org.openhab.runtime.feature_1.6.2/" version="1.6.2">
+		</feature>
+		<feature id="org.eclipse.equinox.server.p2" url="features/org.eclipse.equinox.server.p2_1.2.0.v20121207-192030-7z7_FfpFTy21Yw5Zoc_fljNHu/" version="1.2.0.v20121207-192030-7z7_FfpFTy21Yw5Zoc_fljNHu">
+		</feature>
+		<feature id="org.eclipse.jetty.core" url="features/org.eclipse.jetty.core_8.1.3.201206060641/" version="8.1.3.201206060641">
+		</feature>
+		<feature id="org.openhab.dependencies.feature" url="features/org.openhab.dependencies.feature_1.6.2/" version="1.6.2">
+		</feature>
+		<feature id="org.eclipse.equinox.server.core" url="features/org.eclipse.equinox.server.core_1.2.0.v20120522-1841-7K7VFO3F7RZHQ_IDVl8S2fpNd/" version="1.2.0.v20120522-1841-7K7VFO3F7RZHQ_IDVl8S2fpNd">
+		</feature>
+	</site>
+</config>

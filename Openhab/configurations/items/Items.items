@@ -1,0 +1,3 @@
+Group Temperature
+
+Number LivingRoomTemp1 <temperature> (Temperature) {mqtt="<[localBroker:/LivingRoom/Temp/1:state:default]"}

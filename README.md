@@ -1,6 +1,6 @@
 # ESP8266-Thermostat
 
-Thermostat temperature control system using ESP8266 serial wifi boards, Openhab, and TMP112 temperature sensing IC.
+Thermostat temperature control system using ESP8266 serial wifi boards, Openhab, and ??? temperature sensing IC.
 
 ## Current Status
 
@@ -8,7 +8,7 @@ Currently unusable - DO NOT USE
 
 The project comes in 3 folders:
 
-* The Openhab configuration files
+* The Openhab configuration files (a complete Openhab folder that can be copied and run)
 * C code for the ESP thermometer devices
 * C code for the ESP temperature control board
 
@@ -20,6 +20,6 @@ The ESP code was designed and compiled using the Windows SDK Toolkit available a
 
 ### Thermometer Sensor
 
-* Load the example into Eclipse
+* Load the projects into Eclipse
 * Open file "/include/user_config.h" and change the #defines as necessary (I've left them to the default ones in the example)
-
+* 
