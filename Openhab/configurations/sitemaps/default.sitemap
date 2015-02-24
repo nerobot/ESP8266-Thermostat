@@ -1,6 +1,9 @@
 sitemap HomeAutomation1 label="Home Automation 0.1"{
 	Frame label="Temperature" {
-		Text item=LivingRoomTemp1 label="Living Room Temperature: [%.1f]"
-		Chart item=LivingRoomTemp1 period=h refresh=1000 service="rrd4j"		
+		Text item=LivingRoomTemp1 label="Living Room Temperature: [%.3f]"
+		Switch item=TempChartPeriod label="Period" mappings=[0="Hour", 1="Day", 2="Week"]
+		Chart item=LivingRoomTemp1 period=h refresh=1000 service="rrd4j" visibility=[TempChartPeriod==0, TempChartPeriod=="Uninitiated"]
+		Chart item=LivingRoomTemp1 period=D refresh=1000 service="rrd4j" visibility=[TempChartPeriod==1]
+		Chart item=LivingRoomTemp1 period=W refresh=1000 service="rrd4j" visibility=[TempChartPeriod==2]				
 	}
 }
