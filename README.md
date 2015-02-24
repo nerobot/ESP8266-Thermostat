@@ -4,7 +4,9 @@ Thermostat temperature control system using ESP8266 serial wifi boards, Openhab,
 
 ## Current Status
 
-Currently unusable - DO NOT USE
+* Temperature Sensor Code and circuit work
+* Openhab only setup for one temperature sensing board
+* Thermostat control not setup
 
 The project comes in 3 folders:
 
@@ -22,4 +24,4 @@ The ESP code was designed and compiled using the Windows SDK Toolkit available a
 
 * Load the projects into Eclipse
 * Open file "/include/user_config.h" and change the #defines as necessary (I've left them to the default ones in the example)
-* 
+* Open file "/user/user_main.c" and change the sensor topic in function blink_cb to whatever is needed for that board
