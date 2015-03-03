@@ -1,6 +1,6 @@
 # ESP8266-Thermostat
 
-Thermostat temperature control system using ESP8266 serial wifi boards, Openhab, and ??? temperature sensing IC.
+Thermostat temperature control system using ESP8266 serial wifi boards, Openhab, and DS1631 temperature sensing IC.
 
 ## Current Status
 
