@@ -38,15 +38,11 @@
 #include "gpio.h"
 #include "user_interface.h"
 #include "mem.h"
-#include "float.h"
-#include <stdlib.h>
-#include <string.h>
-#include "stdio.h"
-#include "math.h"
 
 #define DELAY 60000
 #define ADDRESS 0b10010001
 #define ADDRESS_W 0b10010000
+#define TOPIC "/LivingRoom/Temp/1"
 
 MQTT_Client mqttClient;
 LOCAL os_timer_t blink_timer;
@@ -146,8 +142,8 @@ LOCAL void ICACHE_FLASH_ATTR blink_cb(uint32_t *args)
 	temp >>= 4;
 	uint8_t size = itoa(temp, buf, 10);
 
-	if (temp < 1600)
-		MQTT_Publish(client, "/LivingRoom/Temp/1", buf, size, 0, 1);
+	if (temp < 800)
+		MQTT_Publish(client, TOPIC, buf, size, 0, 1);
 	INFO("%d %d\r\n", T, T2);
 }
 
