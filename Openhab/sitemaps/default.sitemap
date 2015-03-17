@@ -1,0 +1,9 @@
+sitemap Temperature label="HA 0.1"{
+	Frame label="Temperatures" {
+		Text item=livingRoomTemperature label="Living room: [%.3f C]"
+		Text item=bedRoomTemperature label="Bed room: [%.3f C]"
+		Text item=CPUTemperature label="CPU: [%.3f C]"
+		
+		Chart item=RoomTemperatures period=D refresh=1000
+	}
+}

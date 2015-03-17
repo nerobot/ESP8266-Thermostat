@@ -1,6 +1,0 @@
-Group Temperature
-Group TemperatureGraph
-
-Number LivingRoomTemp0 <temperature> (Temperature) {mqtt="<[localBroker:/LivingRoom/Temp/1:state:default]"}
-Number LivingRoomTemp1 (Temperature)
-Number TempChartPeriod (TemperatureGraph)

@@ -1,8 +1,0 @@
-Strategies {  
-	everyMinute: "0 * * * * ?"
-    default = everyChange  
-}  
-  
-Items {  
-	LivingRoomTemp1 : strategy = everyMinute
-}

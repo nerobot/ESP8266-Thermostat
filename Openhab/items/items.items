@@ -1,0 +1,6 @@
+Group All
+Group RoomTemperatures (All)
+
+Number livingRoomTemperature "living room"  <temperature> (RoomTemperatures) 
+Number bedRoomTemperature  "bed room" <temperature> (RoomTemperatures) 
+Number CPUTemperature "CPU"  <temperature> 	

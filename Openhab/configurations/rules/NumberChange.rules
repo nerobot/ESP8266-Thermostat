@@ -1,9 +1,0 @@
-import org.openhab.core.library.types.*
-
-rule "TemperatureConvert"
-when
-	Item LivingRoomTemp0 changed
-then
-	var newTemp1 = LivingRoomTemp0.state as DecimalType
-	postUpdate(LivingRoomTemp1, (LivingRoomTemp0.state as DecimalType) * 0.0625)
-end
